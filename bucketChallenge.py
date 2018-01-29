@@ -5,11 +5,10 @@
 # assume bucket size can only be positive integers
 
 line1= input()
-bucket_sizes = input1.split()
-for i in len(bucket_sizes):
-	bucket_sizes[i] = int(bucket_sizes[i])
+bucket_sizes = list(map(int, line1.split(' ')))
 line2 = input()
-target_value = int(line2)
+target_value = list(map(int, line2))
+target_value = target_value[0]
 def targetIsReachable(bucket_sizes, target_value):
 	i = 0
 	m = len(bucket_sizes)
@@ -22,4 +21,4 @@ def targetIsReachable(bucket_sizes, target_value):
 	elif target_value == 0:
 		return 1
 	return 0
-print targetIsReachable(bucket_sizes, targetIsReachable)
+print (targetIsReachable(bucket_sizes, target_value))
