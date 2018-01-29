@@ -2,13 +2,12 @@
 ## 1A bucket challenge:
 Open the terminal, when call ___python bucketChallenge.py___, you shall give the parameters in the following format:
 <br/>
-1. At the first line, your first entry is the number of 
-bucket size you have, followed by specific bucket sizes.
+1. At the first line, your entries are bucket sizes.
 2. At the second line, type in the target size.
 <br/><br/>
 e.g.
 <br/> _INPUT:_
-<br/> 3 4 5 6
+<br/> 4 5 6
 <br/> 7
 <br/> _OUTPUT:_
 <br/> 0
