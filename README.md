@@ -20,4 +20,4 @@ e.g.
 ## 2 file challenge:
 Assume the input file would be txt files ("*.txt").
 Our output would also be a txt file in which the quantifier and names are alinged in a desired format.
-<br/>Note that you can change the names of input files in _ReadFile.py_
+<br/>Note that you can change the names of input files in _fileChallenge.py_
