@@ -1,6 +1,3 @@
-# input1 = input()
-# input1 = input1.split(' ')
-
 # since size of 0 or negative number do noes not make sense
 # assume bucket size can only be positive integers
 
