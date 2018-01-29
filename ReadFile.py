@@ -7,6 +7,8 @@ FILE_NAME2 = 'file2.txt'
 NEW_FILE = 'target.txt'
 s = []
 m = {}
+
+# store lines in two files into a single sequence s
 with open(FILE_NAME1) as f1:
 	line = f1.readline()
 	s.append(line)
@@ -28,7 +30,8 @@ s.sort()
 s = [line.rstrip('\n') for line in s]
 n = len(s)
 
-
+# check if two names belong to a single quantifier,
+# if so, merge them
 for i in xrange(n):
 	c = s[i].split(' ')
 	if i > 0:
