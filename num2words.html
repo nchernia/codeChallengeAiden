@@ -1,0 +1,318 @@
+<!DOCTYPE html>	 
+<html>
+<head>
+     <title>RememberEasier -- Convert number to words for easier recalling</title>
+     <style type="text/css">
+	 * {margin:0; padding:0}
+	 h1 {font-size:large;color:#000f1a;font-weight:normal;margin-bottom:0.5em}
+	 #icontainer {margin:0.5em 0.5em 0.5em 0.5em; text-align:center} 
+	 a:link {color:#339933}
+	 a:visited {color:#339933}
+	 a:hover {color:#00ff00}
+	 a:active {color:#faeedd;background-color:#281700}
+	 span.digit {font-weight:bold;color:#281700}
+	 #partnersclosed, #partnersopen, #privacyclosed, #privacyopen, #helpclosed, #helpopen {margin-right:4px;margin-left:4px}
+   /*--------------------------------------------------------------
+1.0 - BASE SITE STYLES
+--------------------------------------------------------------*/
+*,*:after,*:before {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+
+.cf:before,
+.cf:after {
+    content:"";
+    display:table;
+}
+.cf:after {
+    clear:both;
+}
+
+body {
+  background: #3aaae8;
+  color: #fff;
+  font:12px/18px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+}
+a,a:visited {
+  color:#fff
+}
+
+/*--------------------------------------------------------------
+2.0 - SEARCH FORM
+--------------------------------------------------------------*/
+.searchform {
+  background:#f4f4f4;
+  background:rgba(244,244,244,.79);
+  border: 1px solid #d3d3d3;
+  left: 40%;
+  padding: 2px 5px;
+  position: absolute;
+  margin: -22px 0 0 -170px;
+  top: 50%;
+  width:600px;
+  box-shadow:0 4px 9px rgba(0,0,0,.37);
+  -moz-box-shadow:0 4px 9px rgba(0,0,0,.37);
+  -webkit-box-shadow:0 4px 9px rgba(0,0,0,.37);
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px
+}
+
+.searchform input, .searchform button {
+  float: left
+}
+.searchform input {
+  background:#fefefe;
+  border: none;
+  font:12px/12px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  margin-right: 5px;
+  padding: 10px;
+  width: 216px;
+  box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px
+}
+  .searchform input:focus {
+    outline: none;
+    box-shadow:0 0 4px #0d76be inset;
+    -moz-box-shadow:0 0 4px #0d76be inset;
+    -webkit-box-shadow:0 0 4px #0d76be inset;
+  }
+  .searchform input::-webkit-input-placeholder {
+    font-style: italic;
+    line-height: 15px
+  }
+
+  .searchform input:-moz-placeholder {
+    font-style: italic;
+    line-height: 15px
+  }
+
+.searchform button {
+  background: rgb(52,173,236);
+  background: -moz-linear-gradient(top, rgba(52,173,236,1) 0%, rgba(38,145,220,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(52,173,236,1)), color-stop(100%,rgba(38,145,220,1)));
+  background: -webkit-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
+  background: -o-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
+  background: -ms-linear-gradient(top, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
+  background: linear-gradient(to bottom, rgba(52,173,236,1) 0%,rgba(38,145,220,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#34adec', endColorstr='#2691dc',GradientType=0 );
+  border: none;
+  color:#fff;
+  cursor: pointer;
+  font: 13px/13px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  padding: 10px;
+  width:106px;
+  box-shadow: 0 0 2px #2692dd inset;
+  -moz-box-shadow: 0 0 2px #2692dd inset;
+  -webkit-box-shadow: 0 0 2px #2692dd inset;
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+}
+  .searchform button:hover {
+    opacity:.9;
+  }
+	 </style>
+
+</head>
+	 
+<body>
+
+<div id="icontainer">
+
+
+    <!-- content goes here -->
+
+
+<h1 style="margin-top: 100px">Remember a number easier!</h1>
+
+<form class="searchform cf" >
+  <input type="text" id = "frml" placeholder="What's your number?">
+  <button type="submit" onclick="myFunction()">Convert</button>
+  <input type="text" id = "output"  placeholder="This is output">
+</form>
+</div>
+<div style="left: 10%;position: absolute">
+  <p style="font-size: 14px">In this program we intepret numbers as follows:    
+    <ul>
+      <li>0-z</li>
+      <li>1-l</li>
+      <li>2-n</li>
+      <li>3-m</li>
+      <li>4-r</li>
+      <li>5-s</li>
+      <li>6-g</li>
+      <li>7-t</li>
+      <li>8-f</li>
+      <li>9-q</li>
+    </ul>
+  </p>
+</div>
+
+<p style="margin-top: 480px">RememberEasier -- a project that helps remember numbers by <a href="https://github.com/AlanFermat">Zhe</a> </p>
+
+<script type="text/javascript">
+  function setCharAt(str,index,chr) {
+    if(index > str.length-1) return str;
+    return str.substr(0,index) + chr + str.substr(index+1);
+}
+
+  function test() {
+    var str = "a";
+    str = setCharAt(str, 0, "l");
+    alert(str);
+  }
+  function num_to_char(t){
+    // ENCODE
+    // 0-z
+    // 1-l
+    // 2-n
+    // 3-w
+    // 4-r
+    // 5-s
+    // 6-g
+    // 7-t
+    // 8-f
+    // 9-q
+    if (t == "0") {
+      var result = "z";
+    }if (t == "1") {
+      var result = "l";
+    }if (t == "2") {
+      var result = "n";
+    }if (t == "3") {
+      var result = "m";
+    }if (t == "4") {
+      var result = "r";
+    }if (t == "5") {
+      var result = "s";
+    }if (t == "6") {
+      var result = "b";
+    }if (t == "7") {
+      var result = "t";
+    }if (t == "8") {
+      var result = "f";
+    }if (t == "9") {
+      var result = "q";
+    }
+    return result;
+  }
+  function getIndicesOf(searchStr, str) {
+    var searchStrLen = searchStr.length;
+    if (searchStrLen == 0) {
+        return [];
+    }
+    var startIndex = 0, index, indices = [];
+    while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+        indices.push(index);
+        startIndex = index + searchStrLen;
+    }
+    return indices;
+}
+  function convert(text){
+    // For the sake of convenience,
+    // here, we only consider 11 possible and most frequently
+    // used words which have three consonants, as follows,
+    // bll --- bill
+    // mmm --- mummy
+    // mrs --- Mrs.
+    // lmt --- limit
+    // smt --- Smith
+    // lsr --- loser
+    // fml --- family
+    // nll --- null
+    // bss --- boss
+    // mst --- most
+    // fst --- fast
+    var searchStr = ["bll","mmm","mrs","lmt","smt","lsr","fml","nll","bss","mst","fst"];
+    var size = 3;
+    var indices_dict = {};
+    for (var i = 0; i < searchStr.length; i++) {
+      var indices = getIndicesOf(searchStr[i],text);
+      if (indices.length > 0) {
+        indices_dict[searchStr[i]] = indices; 
+        for (var k = 0; k < indices.length; k++) {
+          for (var j = 0; j < size ; j++) {
+            var t = indices[k] + j;
+            text = setCharAt(text, t, "o");
+          }
+        }
+      }
+    }
+    return [indices_dict, text];
+  }
+  function mappingWord(index, word_dict){
+    var store_word = {
+      "bll": " bill ",
+      "mmm": " mummy ",
+      "mrs": " Mrs ",
+      "lmt": " limit ",
+      "smt": " Smith ",
+      "lsr": " loser ",
+      "fml": " family ",
+      "nll": " null ",
+      "bss": " boss ",
+      "mst": " most ",
+      "fst": " fast "
+    };
+    var word_map = [];
+    for (var i = 0; i < index.length;  i++) {
+      for(p in word_dict){
+        if (word_dict[p].indexOf(index[i]) > -1) {
+          word_map.push(store_word[p]);
+        }
+      }
+    }
+    return word_map;
+  }
+  function myFunction(){
+    var x = document.getElementById("frml").value;
+    var arr= [];
+    var seq = [];
+    var size = 3;
+    for (var j = 0;j < x.length;j++){
+        arr.push(x[j]);
+    }
+    var word = "";
+    for(var i = 0;i<arr.length;i++){
+      var result = num_to_char(arr[i]);
+      word += result;
+    }
+    var [word_dict, word] = convert(word);
+    // For the sake of checking everything is correct so far
+    // alert(word);
+    // for (i in word_dict){
+    //   alert(i + " " + word_dict[i]);
+    // }
+    var index = [];
+    for (i in word_dict) {
+      for (var j = 0;j < word_dict[i].length; j ++) {
+        index.push(word_dict[i][j]);
+      }
+    }
+    index.sort();
+    var word_map = mappingWord(index, word_dict);
+    var start = 0;
+    for (var i =0;i<index.length; i++) {
+      var pos = start + index[i];
+      word = setCharAt(word, pos, word_map[i]);
+      start += word_map[i].length;
+    }
+    while(word.indexOf("o") != -1){
+      word = word.replace("o", "");
+    }
+    alert(word);
+    // Want to show my output in the following box
+    document.getElementById("output").innerHTML = x;
+
+  }
+</script>
+
+</body>
+</html>
